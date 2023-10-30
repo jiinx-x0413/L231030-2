@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -64,34 +65,46 @@ int main()
 	*/
 
 
-	//
-
-	
+	// 연습
+	// new : delete
+	// new [] : delete[]
 	/*
-	int A = 9;
-	int* PA = &A;
-	for (int i = 0; i < 5; i++)
+	int* PA = new int[10];
+	memset(PA, 0, 10); // init : parameter = 시작점, 값, 길이
+	
+	for (int i = 0; i < 10; i++) // init
 	{
-		//PA[i] = i;
-		
-		cout << PA[i] << endl;
-		cout << *(PA + i) << endl;
+		PA[i] = 0;
 	}
-	*/
 	
 
-	int Arr[5] = { 1, 2, 3, 4, 5 };
-	int* PArr = new int[5];
-	*PArr = { &Arr[0], &Arr[1], &Arr[2], &Arr[3], &Arr[4]};
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		
-		cout << *(PArr + i) << endl;
+		//*(PA + i) = i;
+		PA[i] = i;
 	}
 
+	delete[] PA; // new 로 만들면 무적권 delete로 지움
+	*/
 
+	// 문자
+	// 문자 저장 방법 없음 -> 배열로 저장 && 끝자리 알려줘야 함 (null point = '\n')
+	// 즉, N개의 문자를 위해 N+1개의 문자를 메모리에 저장해야 함.
+	//char Message[6] = { 'H', 'e', 'l', 'l', 'o', '\0'};
+	//cout << Message << endl;
 
+	char Messaging[6] = "Hello";
+	cout << Messaging << endl;
+
+	//	문자변경 : 배열 요소를 하나씩 바꿔줘야 하므로 string 이라는 타입을 씀 -> class
+	//  char : 문자 <> string : 문자열 (#inlcude <string>)
+	string Message = "Hello";
+	cout << Message << endl;
+
+	string World = "World";
+	Message = "Hello " + World;
+	cout << Message << endl;
+	
 
 	return 0;
 }
-
